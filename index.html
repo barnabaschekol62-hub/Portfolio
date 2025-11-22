@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Barnabas Chekol — Portfolio</title>
+  <meta name="description" content="Barnabas Chekol — Content creator, digital marketer & copywriter." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-0:#080607;--bg-1:#0f0e0d;
+      --card:rgba(255,255,255,0.03);
+      --muted:#bdb5a6;--text:#f3efe6;
+      --gold-1:#bfa76a;--gold-2:#eedc9a;
+      --radius:20px;--container:1100px;
+      --shadow-strong:0 18px 50px rgba(2,2,2,0.7);
+      --shadow-soft:0 10px 30px rgba(0,0,0,0.6);
+      --transition:320ms cubic-bezier(.2,.9,.3,1);
+    }
+
+    *{box-sizing:border-box}
+    html,body{
+      height:100%;margin:0;
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(191,167,106,0.08) 0%, transparent 8%),
+        radial-gradient(900px 450px at 95% 90%, rgba(222,198,140,0.04) 0%, transparent 12%),
+        linear-gradient(180deg,var(--bg-0),var(--bg-1));
+      color:var(--text);
+      font-family:Inter,-apple-system,system-ui;
+    }
+
+    .wrap{max-width:var(--container);margin:48px auto;padding:28px;display:grid;gap:28px}
+
+    .hero{
+      display:grid;grid-template-columns:240px 1fr;gap:32px;align-items:center;
+      padding:34px;border-radius:var(--radius);
+      background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.04);
+      box-shadow:var(--shadow-strong);
+      position:relative;
+    }
+
+    .pfp{
+      width:240px;height:240px;border-radius:18px;overflow:hidden;
+      box-shadow:0 30px 80px rgba(8,6,5,0.65);
+      border:1px solid rgba(255,255,255,0.06);
+    }
+    .pfp img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.9,.3,1)}
+    .pfp:hover img{transform:scale(1.03) rotate(-.4deg)}
+
+    h1{
+      margin:0;font-family:"Playfair Display",serif;
+      font-size:40px;font-weight:600;letter-spacing:-.6px;color:var(--gold-2)
+    }
+    .sub{margin-top:8px;color:var(--muted);font-weight:600}
+    .bio{margin-top:18px;color:var(--muted);max-width:62ch;line-height:1.6}
+
+    .ctas{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;padding:12px 16px;
+      border-radius:12px;font-weight:700;text-decoration:none;
+      transition:transform var(--transition)
+    }
+    .btn-primary{
+      background:linear-gradient(90deg,var(--gold-1),var(--gold-2));
+      color:#0b0b0b;box-shadow:0 12px 40px rgba(187,150,64,0.18)
+    }
+    .btn-ghost{
+      border:1px solid rgba(255,255,255,0.06);
+      color:var(--muted)
+    }
+    .btn:hover{transform:translateY(-3px)}
+
+    .divider{
+      height:1px;margin:18px 0;
+      background:linear-gradient(90deg,transparent,rgba(191,167,106,0.45),transparent);
+    }
+
+    .split{display:grid;grid-template-columns:1fr 350px;gap:28px}
+
+    .card{
+      padding:18px;border-radius:16px;
+      background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.04);
+      box-shadow:var(--shadow-soft);
+    }
+
+    .section-title{
+      margin:0;font-size:16px;font-weight:700;
+      color:var(--gold-2);display:flex;align-items:center;
+    }
+
+    .exp-list{display:flex;flex-direction:column;gap:14px;margin-top:12px}
+    .exp{
+      padding:14px;border-radius:12px;
+      background:rgba(255,255,255,0.01);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .exp h4{
+      margin:0;font-family:"Playfair Display",serif;
+      color:var(--gold-2);font-size:16px
+    }
+    .meta{color:var(--muted);font-size:13px;margin-top:6px}
+    .exp p{margin:10px 0 0;color:var(--muted);line-height:1.55}
+
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
+    .project{
+      padding:12px;border-radius:12px;
+      background:rgba(255,255,255,0.01);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .project strong{color:var(--gold-2)}
+    .project .meta{color:var(--muted);font-size:13px}
+
+    .contact{display:flex;flex-direction:column;gap:12px;margin-top:12px}
+    .pill{
+      display:inline-block;padding:10px 12px;
+      border-radius:10px;background:rgba(255,255,255,0.02);
+      border:1px solid rgba(255,255,255,0.03)
+    }
+
+    footer{text-align:center;color:var(--muted);margin-top:22px;font-size:13px}
+
+    .anim{opacity:0;transform:translateY(12px);transition:opacity .68s ease,transform .68s cubic-bezier(.2,.9,.3,1)}
+    .visible{opacity:1;transform:translateY(0)}
+
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr;text-align:center;padding:28px}
+      .pfp{margin:0 auto}
+      .split{grid-template-columns:1fr}
+      .projects{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header class="hero anim">
+      <div class="pfp">
+        <img src="profile.jpg" alt="Profile picture">
+      </div>
+
+      <div>
+        <h1>Barnabas Chekol</h1>
+        <div class="sub">Content creator · Digital marketer · Copywriter</div>
+
+        <p class="bio">
+          I craft high-performing short-form creative and strategic ad content designed to grow audiences,
+          engagement, and conversions.
+        </p>
+
+        <div class="ctas">
+          <a class="btn btn-primary" href="Barnabas Chekol Portfolio.pdf" download>Download CV</a>
+          <a class="btn btn-ghost" href="#projects">View Projects</a>
+        </div>
+
+        <div class="divider"></div>
+      </div>
+    </header>
+
+    <div class="split">
+
+      <main class="card anim">
+        <h2 class="section-title">Experience</h2>
+
+        <div class="exp-list">
+          <div class="exp">
+            <h4>Mereq Tech — Digital Marketer</h4>
+            <div class="meta">Aug 2025 — Present</div>
+            <p>Strategy, campaign execution, creative production and analytics across Meta, Google & TikTok.</p>
+          </div>
+
+          <div class="exp">
+            <h4>Dr Hilina Speciality Dental — Script Writer</h4>
+            <div class="meta">2024 — Present</div>
+            <p>Short-form scripts and content designed to increase patient engagement and awareness.</p>
+          </div>
+
+          <div class="exp">
+            <h4>7G-Star Trading Plc — Digital Marketing Intern</h4>
+            <div class="meta">2023</div>
+            <p>Supported campaign operations and collaborated on cross-functional content for multiple product lines.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:28px">
+          <h3 class="section-title">Selected Projects</h3>
+
+          <div id="projects" class="projects">
+            <div class="project">
+              <strong>Smile Speciality Dental Center</strong>
+              <div class="meta">Social media · Creative · Scripts</div>
+              <p style="margin-top:8px;color:var(--muted)">Content strategy and creative assets executed for appointment-driven growth.</p>
+            </div>
+
+            <div class="project">
+              <strong>Yango</strong>
+              <div class="meta">Driver-focused content</div>
+              <p style="margin-top:8px;color:var(--muted)">High-engagement content tailored to driver communities.</p>
+            </div>
+
+            <div class="project">
+              <strong>Sheqela</strong>
+              <div class="meta">Scripts · SEO · Social</div>
+              <p style="margin-top:8px;color:var(--muted)">SEO-forward scripts and social content improvements.</p>
+            </div>
+
+            <div class="project">
+              <strong>Other</strong>
+              <div class="meta">Campaign assists</div>
+              <p style="margin-top:8px;color:var(--muted)">Short-form creative and copywriting for multiple briefs.</p>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <aside class="card anim">
+        <h3 class="section-title">Contact</h3>
+
+        <div class="contact">
+          <div>
+            <div class="pill">barnabaschekol62@gmail.com</div>
+          </div>
+
+          <div>
+            <div class="pill">+251 93 233 8081</div>
+          </div>
+
+          <div style="margin-top:12px">
+            <a class="btn btn-primary" href="Barnabas Chekol Portfolio.pdf" download style="display:block;text-align:center">
+              Download CV (PDF)
+            </a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+
+    <footer class="anim">© <span id="year"></span> Barnabas Chekol</footer>
+
+  </div>
+
+  <script>
+    document.querySelectorAll('.anim').forEach(el => {
+      const io = new IntersectionObserver(entries=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}
+        });
+      },{threshold:.12});
+      io.observe(el);
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
